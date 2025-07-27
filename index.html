@@ -143,6 +143,62 @@
     </script>
 
 <script nonce="">document.documentElement.classList.remove('no-js');</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* =========================   NAVIGATION   ========================== */
+
+/* ------- Desktop (≥ 768 px) ------- */
+@media (min-width:768px){
+  /* visa alltid menyn i brett läge, oavsett om .hidden ligger kvar   */
+  #site-nav{
+    display:flex !important;
+    gap:1.5rem;
+    align-items:center;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+}
+
+/* döljs normalt i mobil, visas först när JS tar bort .hidden */
+#site-nav.hidden{display:none}
+
+/* -------------------------------------------------------------- */
+/* -------   Mobil (< 768 px): visas när JS lägger på .flex  ---- */
+@media (max-width:767px){
+  #site-nav.flex{
+    position:absolute;         /* lägger sig ovanför headern   */
+    top:100%;                  /* direkt under logotyp / header */
+    left:0;
+    width:100%;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+    z-index:50;                /* högre än headerns 10 - 30     */
+
+    display:flex;
+    flex-direction:column;
+  }
+  #site-nav.flex>li{
+    list-style:none;
+    border-bottom:1px solid #e5e7eb;
+  }
+  #site-nav.flex>li:last-child{border-bottom:none}
+
+  #site-nav.flex>li>a{
+    display:block;
+    padding:.75rem 1rem;
+    text-decoration:none;
+    color:inherit;
+  }
+  #site-nav.flex>li.selected>a{background:#e0f4fa}
+}
+/* ================================================================== */
+</style>
+
+
 </head>
 <body class="" id="migrated-site">
 
@@ -158,6 +214,11 @@
                         <img alt="logo" src="../files.builder.misssite.com/b5/6c/b56c5d74-bda7-4dcf-80a7-64029139fbdf.jpg" style="width: 60px"  />
 </div>
 </a>
+
+<button id="nav-toggle"
+        class="md:hidden p-2 focus:outline-none">☰</button>
+</div>
+
 </div>
 
 
@@ -173,60 +234,45 @@
   
 																													<div class="extendednavigation">
 
-	<ul class="js-menu-list  align-center 5-items">
+<ul id="site-nav"
+    class="hidden               <!-- dold i mobil-läge -->
+           md:flex md:flex-row  <!-- horisontell från 768 px -->
+           md:gap-6             <!-- avstånd mellan länkar -->
+           js-menu-list align-center">
 
-					            			            
-            
-				<li class="home  selected" >
-					
-		            <a href="index.html">
-						<span class="text">Välkommen</span>
-					</a>
+  <li class="home selected">
+    <a href="index.html">
+      <span class="text">Välkommen</span>
+    </a>
+  </li>
 
-            		
-									</li>
-								            								            			            
-            
-				<li class="page" >
-					
-		            <a href="upplevelser.html">
-						<span class="text">Upplevelser</span>
-					</a>
+  <li class="page">
+    <a href="upplevelser.html">
+      <span class="text">Upplevelser</span>
+    </a>
+  </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="bokavrtid.html">
-						<span class="text">Boka VRTID</span>
-					</a>
+  <li class="page">
+    <a href="bokavrtid.html">
+      <span class="text">Boka VRTID</span>
+    </a>
+  </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="ommig.html">
-						<span class="text">Om mig</span>
-					</a>
+  <li class="page">
+    <a href="ommig.html">
+      <span class="text">Om mig</span>
+    </a>
+  </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="jaguartid.html">
-						<span class="text">Vägledning</span>
-					</a>
+  <!-- ✔ korrigerad sista länk -->
+  <li class="page">
+    <a href="jaguartid.html">
+      <span class="text">Vägledning</span>
+    </a>
+  </li>
 
-            		
-									</li>
-								            						</ul>
-    <a href="#" class="pull js-pull"></a>
+</ul>
+
 </div>
 </div>
 
@@ -889,6 +935,9 @@ window["Profile"] = {"profile":{"business":"","headline":"","strapline":"","comp
 	    if (supportsSVG()) document.documentElement.className += ' svg'
 	}()
 </script>
+
+<script src="mobile-nav.js" defer></script>
+
 
 </body>
 
