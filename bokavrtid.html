@@ -1,4 +1,4 @@
-<!doctype html>
+</body><!doctype html>
 <!--[if lt IE 7]>
 	<html class="no-js ie6 oldie" lang="en">
 <![endif]-->
@@ -143,6 +143,66 @@
     </script>
 
 <script nonce="">document.documentElement.classList.remove('no-js');</script>
+<style>
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    font-size: 32px;
+    line-height: 1;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+        float: right;
+        margin-top: 10px;
+    }
+
+    #site-nav {
+        display: none;
+        width: 100%;
+        clear: both;
+        margin-top: 12px;
+        padding-left: 0;
+    }
+
+    #site-nav.is-open {
+        display: block;
+    }
+
+    #site-nav li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #site-nav li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .extendednavigation .pull,
+    .extendednavigation .js-pull {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-nav-toggle {
+        display: none !important;
+    }
+
+    #site-nav {
+        display: block !important;
+    }
+}
+</style>
 </head>
 <body class="" id="migrated-site">
 
@@ -171,62 +231,42 @@
 
         <div id="page-zones__template-widgets__extendednavigation-navigationheader" class="widget extendednavigation " data-widget-type="extendednavigation" data-uniqueid="page-zones__template-widgets__extendednavigation-navigationheader">
   
-																													<div class="extendednavigation">
+<div class="extendednavigation">
+    <button id="nav-toggle" class="mobile-nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Öppna meny">
+        ☰
+    </button>
 
-	<ul class="js-menu-list  align-center 5-items">
+    <ul id="site-nav" class="js-menu-list align-center 5-items">
+        <li class="home">
+            <a href="index.html">
+                <span class="text">Välkommen</span>
+            </a>
+        </li>
 
-					            			            
-            
-				<li class="home" >
-					
-		            <a href="index.html">
-						<span class="text">Välkommen</span>
-					</a>
+        <li class="page">
+            <a href="upplevelser.html">
+                <span class="text">Upplevelser</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            								            			            
-            
-				<li class="page" >
-					
-		            <a href="upplevelser.html">
-						<span class="text">Upplevelser</span>
-					</a>
+        <li class="page selected">
+            <a href="bokavrtid.html">
+                <span class="text">Boka VRTID</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page  selected" >
-					
-		            <a href="bokavrtid.html">
-						<span class="text">Boka VRTID</span>
-					</a>
+        <li class="page">
+            <a href="ommig.html">
+                <span class="text">Om mig</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="ommig.html">
-						<span class="text">Om mig</span>
-					</a>
-
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="jaguartid.html">
-						<span class="text">Vägledning</span>
-					</a>
-
-            		
-									</li>
-								            						</ul>
-    <a href="#" class="pull js-pull"></a>
+        <li class="page">
+            <a href="jaguartid.html">
+                <span class="text">Vägledning</span>
+            </a>
+        </li>
+    </ul>
 </div>
 </div>
 
@@ -650,6 +690,7 @@ window["Profile"] = {"profile":{"business":"","headline":"","strapline":"","comp
 	}()
 </script>
 
+<script src="mobile-nav.js"></script>
 </body>
 
 <!-- Mirrored from vrystad.se/bokavrtid by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Jul 2025 12:35:36 GMT -->
