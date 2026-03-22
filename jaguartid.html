@@ -49,100 +49,65 @@
 
     
 <style>
-    @font-face {
-        font-display: block;
-        font-family: 'FontAwesome';
-        src: url('http://55b558c7-resources.builder.misssite.com/522e7d2800/app-fonts/FontAwesome.woff2') format('woff2'),
-             url('http://55b558c7-resources.builder.misssite.com/522e7d2800/app-fonts/FontAwesome.woff') format('woff'),
-             url('http://55b558c7-resources.builder.misssite.com/522e7d2800/app-fonts/FontAwesome.ttf') format('truetype'),
-             url('http://55b558c7-resources.builder.misssite.com/522e7d2800/app-fonts/FontAwesome.svg') format('svg')
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    font-size: 32px;
+    line-height: 1;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+        float: right;
+        margin-top: 10px;
     }
+
+    #site-nav {
+        display: none;
+        width: 100%;
+        clear: both;
+        margin-top: 12px;
+        padding-left: 0;
+    }
+
+    #site-nav.is-open {
+        display: block;
+    }
+
+    #site-nav li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #site-nav li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .extendednavigation .pull,
+    .extendednavigation .js-pull {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-nav-toggle {
+        display: none !important;
+    }
+
+    #site-nav {
+        display: block !important;
+    }
+}
 </style>
-
-            <style
-            class="js-webfont"
-            data-woff-cache="//55b558c7-resources.builder.misssite.com/522e7d2800/seven/fonts/droid_serif.woff.json"
-            data-ttf-cache="//55b558c7-resources.builder.misssite.com/522e7d2800/seven/fonts/droid_serif.ttf.json"
-            data-fallback-stylesheet="https://fonts.googleapis.com/css?family=Droid+Serif&amp;subset=latin"
-            data-name="droid_serif"
-        ></style>
-            <style
-            class="js-webfont"
-            data-woff-cache="//55b558c7-resources.builder.misssite.com/522e7d2800/seven/fonts/lato.woff.json"
-            data-ttf-cache="//55b558c7-resources.builder.misssite.com/522e7d2800/seven/fonts/lato.ttf.json"
-            data-fallback-stylesheet="https://fonts.googleapis.com/css?family=Lato&amp;subset=latin"
-            data-name="lato"
-        ></style>
-    <script nonce="">
-(function () {
-    var fontCollections,
-        fontsToCache,
-        fallback = 1;
-
-    function loadFontsAsynchronously() {
-        if (!fallback) {
-            return;
-        }
-
-        for (var i = 0, j = fontCollections.length; i < j; ++i) {
-            var link = document.createElement('link'),
-                head = document.getElementsByTagName('head')[0];
-            link.rel = 'stylesheet';
-            link.href = fontCollections[i].getAttribute('data-fallback-stylesheet');
-            head.appendChild(link);
-        }
-    }
-
-    function loadFontsFromStorage() {
-        var localKey = 'published',
-            format,
-            collection,
-            cachedFont;
-
-        if (!window.localStorage) {
-            return;
-        }
-
-        format = window.localStorage.getItem('bk.webfonts.format')
-        if (!format) {
-            return;
-        }
-
-        for (var i = 0, j = fontCollections.length; i < j; ++i) {
-            collection = fontCollections[i];
-            cacheKey = 'bk.webfonts.' + localKey + '.' + format + '.' + collection.getAttribute('data-name');
-            cachedFont = window.localStorage.getItem(cacheKey);
-            if (!cachedFont) {
-                continue;
-            }
-            collection.innerHTML = cachedFont;
-            collection.setAttribute('data-cache-full', 'data-cache-full');
-        }
-    }
-
-    if (!'querySelectorAll' in window) {
-        return;
-    }
-
-    fontCollections = document.head.querySelectorAll('.js-webfont');
-    if (!'localStorage' in window || !'addEventListener' in window) {
-        loadFontsAsynchronously();
-        return;
-    }
-
-    loadFontsFromStorage();
-}());
-</script>
-
-    
-    
-
-    <script nonce="">
-        const touchClass = 'ontouchstart' in window ? 'touch' : 'no-touch';
-        document.documentElement.classList.add(touchClass);
-    </script>
-
-<script nonce="">document.documentElement.classList.remove('no-js');</script>
 </head>
 <body class="" id="migrated-site">
 
@@ -171,63 +136,44 @@
 
         <div id="page-zones__template-widgets__extendednavigation-navigationheader" class="widget extendednavigation " data-widget-type="extendednavigation" data-uniqueid="page-zones__template-widgets__extendednavigation-navigationheader">
   
-																													<div class="extendednavigation">
+<div class="extendednavigation">
+    <button id="nav-toggle" class="mobile-nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Öppna meny">
+        ☰
+    </button>
 
-	<ul class="js-menu-list  align-center 5-items">
+    <ul id="site-nav" class="js-menu-list align-center 5-items">
+        <li class="home">
+            <a href="index.html">
+                <span class="text">Välkommen</span>
+            </a>
+        </li>
 
-					            			            
-            
-				<li class="home" >
-					
-		            <a href="index.html">
-						<span class="text">Välkommen</span>
-					</a>
+        <li class="page">
+            <a href="upplevelser.html">
+                <span class="text">Upplevelser</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            								            			            
-            
-				<li class="page" >
-					
-		            <a href="upplevelser.html">
-						<span class="text">Upplevelser</span>
-					</a>
+        <li class="page">
+            <a href="bokavrtid.html">
+                <span class="text">Boka VRTID</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="bokavrtid.html">
-						<span class="text">Boka VRTID</span>
-					</a>
+        <li class="page">
+            <a href="ommig.html">
+                <span class="text">Om mig</span>
+            </a>
+        </li>
 
-            		
-									</li>
-								            			            
-            
-				<li class="page" >
-					
-		            <a href="ommig.html">
-						<span class="text">Om mig</span>
-					</a>
-
-            		
-									</li>
-								            			            
-            
-				<li class="page  selected" >
-					
-		            <a href="jaguartid.html">
-						<span class="text">Vägledning</span>
-					</a>
-
-            		
-									</li>
-								            						</ul>
-    <a href="#" class="pull js-pull"></a>
+        <li class="page selected">
+            <a href="jaguartid.html">
+                <span class="text">Vägledning</span>
+            </a>
+        </li>
+    </ul>
 </div>
+
 </div>
 
 
@@ -1200,6 +1146,7 @@ window["Profile"] = {"profile":{"business":"","headline":"","strapline":"","comp
 	}()
 </script>
 
+<script src="mobile-nav.js"></script>
 </body>
 
 <!-- Mirrored from vrystad.se/jaguartid by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Jul 2025 12:36:27 GMT -->
