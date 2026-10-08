@@ -8,11 +8,41 @@
     <link rel="icon" type="image/x-icon" href="/breath/favicon.ico" />
     <link rel="icon" type="image/png" sizes="48x48" href="/breath/icons/favicon-48.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/breath/icons/apple-touch-icon.png" />
+    <!-- Available before the module loads; never waits for an image or a font. -->
+    <style>
+      .launch { display: none; }
+      @media (prefers-reduced-motion: no-preference) {
+        html[data-standalone-launch] .launch { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+          overflow: hidden; pointer-events: none; background: #000712; color: #edf4f5;
+          text-align: center; font-family: 'Manrope', sans-serif;
+          animation: launch-failsafe 1200ms forwards; }
+        .launch::before { content: ''; position: absolute; inset: -25%;
+          background: radial-gradient(ellipse at 38% 42%, #1b777d30, transparent 42%),
+            radial-gradient(ellipse at 65% 55%, #164b823d, transparent 45%);
+          transform: rotate(-22deg); }
+        .launch-content { position: relative; padding: 24px; }
+        .launch img { display: block; width: 208px; height: 208px; margin: -36px auto -22px; }
+        .launch-name { margin: 0; font-size: clamp(20px, 4vw, 28px); font-weight: 400; letter-spacing: .035em; }
+        .launch-subtitle { margin: 16px 0 0; font-size: 14px; color: #a3b7c4; }
+        .launch.is-ready { transition: opacity 600ms ease-out; opacity: 0; }
+      }
+      @keyframes launch-failsafe { 0%, 99% { visibility: visible; } 100% { visibility: hidden; } }
+    </style>
     <title>Box Breathing Borealis</title>
-    <script type="module" crossorigin src="/breath/assets/index-Bjmmsgxo.js"></script>
-    <link rel="stylesheet" crossorigin href="/breath/assets/index-x4m5W-Bq.css">
+    <script type="module" crossorigin src="/breath/assets/index-CDeYxBYx.js"></script>
+    <link rel="stylesheet" crossorigin href="/breath/assets/index-C7nIX5Zy.css">
   <link rel="manifest" href="/breath/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/breath/registerSW.js" defer></script></head>
   <body>
-    <div id="root"></div>
+    <script>
+      if (matchMedia('(display-mode: standalone)').matches) document.documentElement.setAttribute('data-standalone-launch', '')
+    </script>
+    <div class="launch" aria-hidden="true">
+      <div class="launch-content">
+        <img src="/breath/icons/borealis-monochrome-512.png" width="208" height="208" alt="" />
+        <p class="launch-name">Box Breathing Borealis</p>
+        <p class="launch-subtitle">Settle into stillness.</p>
+      </div>
+    </div>
+    <div id="root"></div>
   </body>
 </html>
