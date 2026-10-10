@@ -29,12 +29,15 @@
       @keyframes launch-failsafe { 0%, 99% { visibility: visible; } 100% { visibility: hidden; } }
     </style>
     <title>Box Breathing Borealis</title>
-    <script type="module" crossorigin src="/breath/assets/index-CDeYxBYx.js"></script>
-    <link rel="stylesheet" crossorigin href="/breath/assets/index-C7nIX5Zy.css">
+    <script type="module" crossorigin src="/breath/assets/index-s3dBMopw.js"></script>
+    <link rel="stylesheet" crossorigin href="/breath/assets/index-efbfafe1.css">
   <link rel="manifest" href="/breath/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/breath/registerSW.js" defer></script></head>
   <body>
     <script>
-      if (matchMedia('(display-mode: standalone)').matches) document.documentElement.setAttribute('data-standalone-launch', '')
+      // The Android wrapper already supplies a native splash. This is presentation only,
+      // not an installation or Digital Asset Links verification signal.
+      const androidLaunch = /^android-app:\/\/se\.vrystad\.boxbreathingborealis\/?$/.test(document.referrer)
+      if (!androidLaunch && matchMedia('(display-mode: standalone)').matches) document.documentElement.setAttribute('data-standalone-launch', '')
     </script>
     <div class="launch" aria-hidden="true">
       <div class="launch-content">
