@@ -1,0 +1,4 @@
+# Preserve Pages/Jekyll publishing and include the public Android association.
+include:
+  - .htaccess
+  - .well-known

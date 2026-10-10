@@ -1,0 +1,14 @@
+[
+    {
+        "target":  {
+                       "sha256_cert_fingerprints":  [
+                                                        "24:63:D4:CD:DC:9F:78:65:94:7A:84:20:CC:F9:19:71:43:0C:A4:2C:18:3C:F1:7C:7F:64:82:EF:38:6C:B0:45"
+                                                    ],
+                       "namespace":  "android_app",
+                       "package_name":  "se.vrystad.boxbreathingborealis"
+                   },
+        "relation":  [
+                         "delegate_permission/common.handle_all_urls"
+                     ]
+    }
+]
